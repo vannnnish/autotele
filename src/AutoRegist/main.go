@@ -7,11 +7,10 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"github.com/cjongseok/slog"
 	"net"
-	"AutoRegist/model"
-	"AutoRegist/constant"
+	"AutoRegist/module"
+	"github.com/cjongseok/slog"
+	"os"
 )
 
 const (
@@ -43,11 +42,11 @@ func main() {
 	defer logf.Close()
 	slog.SetLogOutput(logf)
 
-	for _, phone := range constant.PhoneArray {
-		// phone := "3044608479"
-		key := fmt.Sprintf("./session/+1%s.mtproto", phone)
-		go model.Login(appId, appHash, appVersion, deviceModel, systemVersion, language, key, phone)
-	}
+	//for _, phone := range constant.PhoneArray {
+	phone := "3044608479"
+	key := fmt.Sprintf("./session/+1%s.mtproto", phone)
+	module.Login(appId, appHash, appVersion, deviceModel, systemVersion, language, key, phone)
+	//}
 	// 接收group信息
 
 	blockChan := make(chan bool)

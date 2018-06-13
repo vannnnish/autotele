@@ -3,7 +3,7 @@
  * Copyright © 2018年 yeeyuntech. All rights reserved.
  */
 
-package model
+package module
 
 import (
 	"time"
